@@ -1,3 +1,5 @@
+package main;
+
 import util.UserInterface;
 import model.Financing;
 

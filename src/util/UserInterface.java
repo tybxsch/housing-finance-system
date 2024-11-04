@@ -1,26 +1,19 @@
 package util;
 
-import java.util.Scanner;
-
+/**
+ * Classe utilitária para exibição de mensagens ao usuário.
+ */
 public class UserInterface {
-    private Scanner scanner;
-
-    public UserInterface() {
-        this.scanner = new Scanner(System.in);
-    }
 
     public double getPropertyValue() {
-        System.out.print("Digite o valor do imóvel: ");
-        return scanner.nextDouble();
+        return InputValidator.getPositiveDouble("Digite o valor do imóvel: ");
     }
 
     public int getLoanTerm() {
-        System.out.print("Digite o prazo do financiamento em anos: ");
-        return scanner.nextInt();
+        return InputValidator.getPositiveInt("Digite o prazo do financiamento em anos: ");
     }
 
     public double getInterestRate() {
-        System.out.print("Digite a taxa de juros anual: ");
-        return scanner.nextDouble();
+        return InputValidator.getReasonableInterestRate("Digite a taxa de juros anual: ");
     }
 }
