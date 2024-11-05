@@ -54,27 +54,4 @@ public class InputValidator {
         }
         return value;
     }
-
-    /**
-     * Solicita ao usuário uma taxa de juros razoável (entre 0 e 100).
-     *
-     * @param message Mensagem a ser exibida ao usuário.
-     * @return Uma taxa de juros entre 0 e 100.
-     */
-    public static double getReasonableInterestRate(String message) {
-        double value = -1;
-        while (value <= 0 || value > 100) {
-            try {
-                System.out.print(message);
-                value = scanner.nextDouble();
-                if (value <= 0 || value > 100) {
-                    System.out.println("Valor inválido. Por favor, digite uma taxa de juros entre 0 e 100.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Valor inválido. Por favor, digite um número DECIMAL.");
-                scanner.next();
-            }
-        }
-        return value;
-    }
 }
