@@ -4,9 +4,6 @@ import util.UserInterface;
 import model.Financing;
 import java.util.ArrayList;
 
-/**
- * Classe principal que executa o programa de financiamento.
- */
 public class Main {
     public static void main(String[] args) {
         UserInterface ui = new UserInterface();
@@ -25,6 +22,13 @@ public class Main {
             financings.add(financing);
         }
 
+        // Exibe os detalhes de cada financiamento individualmente
+        for (int i = 0; i < financings.size(); i++) {
+            Financing financing = financings.get(i);
+            financing.getFinancingDetails(hasMoreThanOneFinancing ? i + 1 : 0);
+        }
+
+        // Exibe os detalhes totais de todos os financiamentos
         Financing.getAllFinancingDetails(financings);
     }
 }

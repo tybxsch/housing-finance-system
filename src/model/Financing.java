@@ -63,14 +63,18 @@ public class Financing {
     /**
      * Exibe os detalhes do financiamento formatados em reais (R$).
      */
-    public void getFinancingDetails() {
+    public void getFinancingDetails(int financingNumber) {
         double totalPayment = this.getTotalPayment();
         double monthlyPayment = this.getMonthlyPayment();
 
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
         System.out.println("=====================================");
-        System.out.println("         Detalhes do Financiamento         ");
+        if (financingNumber > 0) {
+            System.out.printf("         Detalhes do Financiamento %d         \n", financingNumber);
+        } else {
+            System.out.println("         Detalhes do Financiamento         ");
+        }
         System.out.println("=====================================");
         System.out.printf("Valor do Imóvel: %s\n", currencyFormatter.format(this.propertyValue));
         System.out.printf("Prazo do Financiamento: %d anos\n", this.loanTerm);
