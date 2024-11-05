@@ -4,6 +4,10 @@ import util.UserInterface;
 import model.Financing;
 import java.util.ArrayList;
 
+
+/**
+ * Classe principal que executa o programa de financiamento.
+ */
 public class Main {
     public static void main(String[] args) {
         UserInterface ui = new UserInterface();
