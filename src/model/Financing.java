@@ -47,7 +47,8 @@ public class Financing {
      * @return Pagamento mensal.
      */
     public double getMonthlyPayment() {
-        return (this.propertyValue / (this.loanTerm * 12)) * (1 + (this.interestRate / 12));
+        double monthlyInterestRate = this.interestRate / 100 / 12;
+        return (this.propertyValue / (this.loanTerm * 12)) * (1 + monthlyInterestRate);
     }
 
     /**
