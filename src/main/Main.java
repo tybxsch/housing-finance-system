@@ -23,15 +23,14 @@ public class Main {
         // Adiciona o financiamento fornecido pelo usuário
         financings.add(new House(propertyValue, loanTerm, interestRate));
 
-        // Adiciona os demais financiamentos diretamente no código
-        financings.add(new House(300000, 20, 5.0));
-        financings.add(new Apartment(200000, 15, 4.5));
-        financings.add(new Land(150000, 10, 6.0));
+        // Adiciona os demais financiamentos com os mesmos valores de input do usuário para diferentes tipos de imóveis
+        financings.add(new Apartment(propertyValue, loanTerm, interestRate));
+        financings.add(new Land(propertyValue, loanTerm, interestRate));
 
         // Exibe os detalhes de cada financiamento individualmente
         for (int i = 0; i < financings.size(); i++) {
             Financing financing = financings.get(i);
-            financing.getFinancingDetails(i + 1);
+            financing.getFinancingDetails(i + 1, financing);
         }
 
         // Exibe os detalhes totais de todos os financiamentos

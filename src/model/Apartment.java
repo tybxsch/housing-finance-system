@@ -23,10 +23,16 @@ public class Apartment extends Financing {
      */
     @Override
     public double getMonthlyPayment() {
-        double monthlyInterestRate = this.getInterestRate() / 100 / 2;
+        double monthlyInterestRate = super.getInterestRate() / 100 / 2;
         int months = this.getLoanTerm() * 12;
-        double numerator = this.getPropertyValue() * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months);
+        double numerator = super.getPropertyValue() * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months);
         double denominator = Math.pow(1 + monthlyInterestRate, months) - 1;
         return numerator / denominator;
+    }
+
+    @Override
+    public double getTotalPayment() {
+        double monthlyPayment = getMonthlyPayment();
+        return getMonthlyPayment() * super.getLoanTerm() * 12;
     }
 }

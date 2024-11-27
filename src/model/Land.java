@@ -16,14 +16,20 @@ public class Land extends Financing {
         super(propertyValue, loanTerm, interestRate);
     }
 
+    @Override
+    public double getMonthlyPayment() {
+        double monthlyInterestRate = this.getInterestRate() / 100 / 12;
+        return (super.getPropertyValue() / (super.getLoanTerm() * 12)) * (1 + monthlyInterestRate);
+    }
+
     /**
      * Calcula o pagamento mensal do financiamento, incluindo um acréscimo de 2%.
      *
      * @return Pagamento mensal com o acréscimo de 2%.
      */
     @Override
-    public double getMonthlyPayment() {
-        double monthlyPayment = super.getMonthlyPayment();
-        return monthlyPayment * 1.02;
+    public double getTotalPayment() {
+        double monthlyPayment = this.getMonthlyPayment();
+        return (monthlyPayment * 1.02) * ( super.getLoanTerm() * 12);
     }
 }
