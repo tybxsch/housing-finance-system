@@ -74,6 +74,9 @@ public class UserInterface {
                 System.out.println("Valor inválido. Por favor, digite um número DECIMAL.");
                 scanner.next();
             }
+            finally {
+                scanner.nextLine();
+            }
         }
         return value;
     }
@@ -94,7 +97,9 @@ public class UserInterface {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Valor inválido. Por favor, digite um número inteiro.");
-                scanner.next();
+            }
+            finally {
+                scanner.nextLine();
             }
         }
         return numberOfFinancings;

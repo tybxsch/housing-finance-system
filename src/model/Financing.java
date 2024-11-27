@@ -33,11 +33,6 @@ public abstract class Financing {
     public abstract double getMonthlyPayment();
 
     /**
-     * Método abstratos para calcular o pagamento TOTAL do financiamento.
-     */
-    public abstract double getTotalPayment();
-
-    /**
      * Getters para os atributos da classe.
      */
     public double getPropertyValue() {
@@ -50,6 +45,16 @@ public abstract class Financing {
 
     public double getInterestRate() {
         return interestRate;
+    }
+
+    /**
+     * Calcula o pagamento total do financiamento.
+     * Total do pagamento = pagamento mensal * prazo do financiamento em anos * 12
+     * @return Pagamento total.
+     */
+    public double getTotalPayment() {
+        double monthlyPayment = this.getMonthlyPayment();
+        return monthlyPayment * this.loanTerm * 12;
     }
 
     /**
