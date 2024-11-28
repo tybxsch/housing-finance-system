@@ -48,10 +48,17 @@ public class Apartment extends Financing {
      */
     @Override
     public double getMonthlyPayment() {
-        double monthlyInterestRate = super.getInterestRate() / 100 / 2;
+        // Juros mensal
+        double monthlyInterestRate = super.getInterestRate() / 100 / 12;
+
+        // Total de meses do financiamento
         int months = this.getLoanTerm() * 12;
-        double numerator = super.getPropertyValue() * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months);
+
+        // Aplica sistema PRICE
+        double numerator = super.getPropertyValue() * Math.pow(1 + monthlyInterestRate, months) * monthlyInterestRate;
         double denominator = Math.pow(1 + monthlyInterestRate, months) - 1;
+
         return numerator / denominator;
     }
+
 }
