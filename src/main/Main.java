@@ -2,8 +2,10 @@ package main;
 
 import util.UserInterface;
 import model.Financing;
+import model.House;
+import model.Apartment;
+import model.Land;
 import java.util.ArrayList;
-
 
 /**
  * Classe principal que executa o programa de financiamento.
@@ -13,23 +15,23 @@ public class Main {
         UserInterface ui = new UserInterface();
         ArrayList<Financing> financings = new ArrayList<>();
 
-        int numberOfFinancings = ui.setNumberOfFinancings();
-        boolean hasMoreThanOneFinancing = numberOfFinancings > 1;
+        // Solicita os dados do usuário para um financiamento
+        double propertyValue = ui.setPropertyValue(1, false);
+        int loanTerm = ui.setLoanTerm(1, false);
+        double interestRate = ui.setInterestRate(1, false);
 
-        for (int i = 0; i < numberOfFinancings; i++) {
-            int propertyNumber = i + 1;
-            double propertyValue = ui.setPropertyValue(propertyNumber, hasMoreThanOneFinancing);
-            int loanTerm = ui.setLoanTerm(propertyNumber, hasMoreThanOneFinancing);
-            double interestRate = ui.setInterestRate(propertyNumber, hasMoreThanOneFinancing);
+        //TODO: DEIXAR ESSES VALORES DINÂMICOS PELOS GETTERS E SETTERS
+        // Adiciona o financiamento fornecido pelo usuário
+        financings.add(new House(propertyValue, loanTerm, interestRate, 500, 100));
 
-            Financing financing = new Financing(propertyValue, loanTerm, interestRate);
-            financings.add(financing);
-        }
+        // Adiciona os demais financiamentos com os mesmos valores de input do usuário para diferentes tipos de imóveis
+//        financings.add(new Apartment(propertyValue, loanTerm, interestRate, 1, 10));
+//        financings.add(new Land(propertyValue, loanTerm, interestRate, "residencial"));
 
         // Exibe os detalhes de cada financiamento individualmente
         for (int i = 0; i < financings.size(); i++) {
             Financing financing = financings.get(i);
-            financing.getFinancingDetails(hasMoreThanOneFinancing ? i + 1 : 0);
+            financing.getFinancingDetails(i + 1, financing);
         }
 
         // Exibe os detalhes totais de todos os financiamentos

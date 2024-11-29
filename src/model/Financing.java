@@ -3,12 +3,14 @@ package model;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import util.FinancingTypesTranslated;
+import util.CurrencyFormatter;
 
 /**
  * Classe Financing que representa um financiamento imobiliário.
  * Ela calcula o pagamento mensal e o pagamento total com base no valor do imóvel, prazo do financiamento e taxa de juros anual.
  */
-public class Financing {
+public abstract class Financing {
     private double propertyValue;
     private int loanTerm;
     private double interestRate;
@@ -27,7 +29,12 @@ public class Financing {
     }
 
     /**
-     * Getters para os atributos da classe.
+     * Método abstratos para calcular o pagamento MENSAL do financiamento.
+     */
+    public abstract double getMonthlyPayment();
+
+    /**
+     * Getters.
      */
     public double getPropertyValue() {
         return propertyValue;
@@ -39,16 +46,6 @@ public class Financing {
 
     public double getInterestRate() {
         return interestRate;
-    }
-
-    /**
-     * Calcula o pagamento mensal do financiamento.
-     * Pagamento mensal = (valor do imóvel / (prazo do financiamento em anos * 12)) * (1 + (taxa anual / 12))
-     * @return Pagamento mensal.
-     */
-    public double getMonthlyPayment() {
-        double monthlyInterestRate = this.interestRate / 100 / 12;
-        return (this.propertyValue / (this.loanTerm * 12)) * (1 + monthlyInterestRate);
     }
 
     /**
@@ -64,24 +61,23 @@ public class Financing {
     /**
      * Exibe os detalhes do financiamento formatados em reais (R$).
      */
-    public void getFinancingDetails(int financingNumber) {
+    public void getFinancingDetails(int financingNumber, Financing financing) {
         double totalPayment = this.getTotalPayment();
         double monthlyPayment = this.getMonthlyPayment();
-
-        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        String financingType = FinancingTypesTranslated.getFinancingTypeByClassName(financing.getClass().getSimpleName());
 
         System.out.println("=====================================");
         if (financingNumber > 0) {
-            System.out.printf("         Detalhes do Financiamento %d         \n", financingNumber);
+            System.out.printf("         Detalhes do Financiamento %d - %s         \n", financingNumber, financingType);
         } else {
-            System.out.println("         Detalhes do Financiamento         ");
+            System.out.printf("         Detalhes do Financiamento - %s  \n", financingType);
         }
         System.out.println("=====================================");
-        System.out.printf("Valor do Imóvel: %s\n", currencyFormatter.format(this.propertyValue));
+        System.out.printf("Valor do Imóvel: %s\n", CurrencyFormatter.formatToBRL(this.propertyValue));
         System.out.printf("Prazo do Financiamento: %d anos\n", this.loanTerm);
         System.out.printf("Taxa de Juros Anual: %.2f%%\n", this.interestRate);
-        System.out.printf("Pagamento Mensal: %s\n", currencyFormatter.format(monthlyPayment));
-        System.out.printf("Valor Total do Financiamento: %s\n", currencyFormatter.format(totalPayment));
+        System.out.printf("Pagamento Mensal: %s\n", CurrencyFormatter.formatToBRL(monthlyPayment));
+        System.out.printf("Valor Total do Financiamento: %s\n", CurrencyFormatter.formatToBRL(totalPayment));
         System.out.println("=====================================");
     }
 
