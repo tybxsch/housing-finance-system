@@ -7,8 +7,8 @@ import util.CurrencyFormatter;
  * Classe que representa um financiamento de casa, incluindo um valor adicional de seguro obrigatório.
  */
 public class House extends Financing {
-    private static final double DEFAULT_INCREASE = 80; // Mantém como constante imutável
-    private double increase; // Variável de instância para controlar o acréscimo ajustado
+    private static final double DEFAULT_INCREASE = 80;
+    private double increase;
     private double builtAreaSize;
     private double landSize;
 
@@ -25,7 +25,7 @@ public class House extends Financing {
         super(propertyValue, loanTerm, interestRate);
         this.builtAreaSize = builtAreaSize;
         this.landSize = landSize;
-        this.increase = DEFAULT_INCREASE; // Inicializa o acréscimo com o valor padrão
+        this.increase = DEFAULT_INCREASE;
     }
 
     /**
