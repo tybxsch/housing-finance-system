@@ -29,7 +29,7 @@ public class House extends Financing {
     }
 
     /**
-     * Getters e setters para os novos atributos.
+     * Getters e setters.
      */
     public double getBuiltAreaSize() {
         return builtAreaSize;

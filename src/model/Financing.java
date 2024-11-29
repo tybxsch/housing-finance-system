@@ -34,7 +34,7 @@ public abstract class Financing {
     public abstract double getMonthlyPayment();
 
     /**
-     * Getters para os atributos da classe.
+     * Getters.
      */
     public double getPropertyValue() {
         return propertyValue;

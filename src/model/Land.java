@@ -20,7 +20,7 @@ public class Land extends Financing {
     }
 
     /**
-     * Getters e setters para o tipo de zona.
+     * Getters e setters.
      */
     public String getZoneType() {
         return zoneType;

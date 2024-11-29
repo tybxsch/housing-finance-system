@@ -23,7 +23,7 @@ public class Apartment extends Financing {
     }
 
     /**
-     * Getters e setters para os novos atributos.
+     * Getters e setters.
      */
     public int getGarageSpaces() {
         return garageSpaces;
