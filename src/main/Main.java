@@ -25,8 +25,8 @@ public class Main {
         financings.add(new House(propertyValue, loanTerm, interestRate, 500, 100));
 
         // Adiciona os demais financiamentos com os mesmos valores de input do usuário para diferentes tipos de imóveis
-        financings.add(new Apartment(propertyValue, loanTerm, interestRate, 1, 10));
-        financings.add(new Land(propertyValue, loanTerm, interestRate, "residencial"));
+//        financings.add(new Apartment(propertyValue, loanTerm, interestRate, 1, 10));
+//        financings.add(new Land(propertyValue, loanTerm, interestRate, "residencial"));
 
         // Exibe os detalhes de cada financiamento individualmente
         for (int i = 0; i < financings.size(); i++) {

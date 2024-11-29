@@ -1,12 +1,14 @@
 package model;
 
 import model.exceptions.IncreaseGreaterThanInterestException;
+import util.CurrencyFormatter;
 
 /**
  * Classe que representa um financiamento de casa, incluindo um valor adicional de seguro obrigatório.
  */
 public class House extends Financing {
-    private static final double MANDATORY_INSURANCE = 80.0;
+    private static final double DEFAULT_INCREASE = 80; // Mantém como constante imutável
+    private double increase; // Variável de instância para controlar o acréscimo ajustado
     private double builtAreaSize;
     private double landSize;
 
@@ -23,6 +25,7 @@ public class House extends Financing {
         super(propertyValue, loanTerm, interestRate);
         this.builtAreaSize = builtAreaSize;
         this.landSize = landSize;
+        this.increase = DEFAULT_INCREASE; // Inicializa o acréscimo com o valor padrão
     }
 
     /**
@@ -44,21 +47,24 @@ public class House extends Financing {
         this.landSize = landSize;
     }
 
+    public double getIncrease() {
+        return increase;
+    }
+
     /**
-     * Verifica se a taxa de juros é válida.
+     * Verifica se o valor do acréscimo é maior que o valor dos juros.
      *
-     * @param interestRate A taxa de juros anual.
-     * @return true se a taxa de juros for válida.
-     * @throws IncreaseGreaterThanInterestException se o acréscimo do valor de pagamento mensal for maior que 80.
+     * @param monthlyIncrease O valor dos juros.
+     * @throws IncreaseGreaterThanInterestException se o valor do acréscimo for maior que o valor dos juros.
      */
-    private boolean isInterestRateValid(double interestRate) throws IncreaseGreaterThanInterestException {
-        double monthlyIncrease = (super.getPropertyValue() / (super.getLoanTerm() * 12)) * (interestRate / 100 / 12);
-
-        if (monthlyIncrease > MANDATORY_INSURANCE) {
-            throw new IncreaseGreaterThanInterestException("O acréscimo do valor de pagamento mensal não pode ser maior que 80.");
+    private void isValidateIncrease(double monthlyIncrease) throws IncreaseGreaterThanInterestException {
+        if (increase > monthlyIncrease) {
+            throw new IncreaseGreaterThanInterestException(String.format(
+                    "O valor do acréscimo de %s é maior que o valor dos juros de %s.",
+                    CurrencyFormatter.formatToBRL(increase),
+                    CurrencyFormatter.formatToBRL(monthlyIncrease)
+            ));
         }
-
-        return true;
     }
 
     /**
@@ -69,14 +75,18 @@ public class House extends Financing {
     @Override
     public double getMonthlyPayment() {
         double monthlyInterestRate = super.getInterestRate() / 100 / 12;
-        double baseMonthlyPayment = (super.getPropertyValue() / (super.getLoanTerm() * 12)) * (1 + monthlyInterestRate);
+        double baseMonthlyPayment = super.getPropertyValue() / (super.getLoanTerm() * 12);
+        double monthlyPaymentWithInterest = baseMonthlyPayment * (1 + monthlyInterestRate);
+        double monthlyIncrease = monthlyPaymentWithInterest - baseMonthlyPayment;
 
         try {
-            isInterestRateValid(monthlyInterestRate);
+            isValidateIncrease(monthlyIncrease);
         } catch (IncreaseGreaterThanInterestException e) {
-
+            System.out.println("Erro: " + e.getMessage());
+            increase = monthlyIncrease;
+            System.out.println("Ajustando o acréscimo para ser igual ao valor dos juros: " + CurrencyFormatter.formatToBRL(monthlyIncrease));
         }
 
-        return baseMonthlyPayment + MANDATORY_INSURANCE;
+        return baseMonthlyPayment + monthlyIncrease + increase;
     }
 }
