@@ -5,6 +5,8 @@ import model.Financing;
 import model.House;
 import model.Apartment;
 import model.Land;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +22,6 @@ public class Main {
         int loanTerm = ui.setLoanTerm(1, false);
         double interestRate = ui.setInterestRate(1, false);
 
-        //TODO: DEIXAR ESSES VALORES DINÂMICOS PELOS GETTERS E SETTERS
         // Adiciona o financiamento fornecido pelo usuário
         financings.add(new House(propertyValue, loanTerm, interestRate, 500, 100));
 
@@ -29,10 +30,25 @@ public class Main {
         financings.add(new Apartment(propertyValue, loanTerm, interestRate, 1, 10));
         financings.add(new Land(propertyValue, loanTerm, interestRate, "residencial"));
 
-        // Exibe os detalhes de cada financiamento individualmente
-        for (int i = 0; i < financings.size(); i++) {
-            Financing financing = financings.get(i);
-            financing.getFinancingDetails(i + 1);
+        try {
+            // Salvar dados de financiamento em um arquivo de texto
+            for (Financing financing : financings) {
+                financing.saveToFile("financings.txt");
+            }
+
+            // Ler dados de financiamento do arquivo de texto
+            ArrayList<Financing> loadedFinancings = Financing.readFromFile("financings.txt");
+
+            // Serializar a lista de financiamentos
+            Financing.serializeFinancings(financings, "financings.ser");
+
+            // Desserializar a lista de financiamentos
+            ArrayList<Financing> deserializedFinancings = Financing.deserializeFinancings("financings.ser");
+            for (Financing financing : deserializedFinancings) {
+                System.out.println(financing);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
         // Exibe os detalhes totais de todos os financiamentos

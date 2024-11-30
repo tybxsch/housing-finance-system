@@ -1,0 +1,70 @@
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 111,00
+Prazo: 11 anos
+Taxa de juros: 1,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 0,84
+Pagamento total: R$ 111,18
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 111,00
+Prazo: 11 anos
+Taxa de juros: 1,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 0,89
+Pagamento total: R$ 117,26
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 111,00
+Prazo: 11 anos
+Taxa de juros anual: 1,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 0,86
+Pagamento total: R$ 113,31
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 4.236,11
+Pagamento total: R$ 508.333,33
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 6.607,54
+Pagamento total: R$ 792.904,42
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros anual: 10,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 4.285,42
+Pagamento total: R$ 514.250,00
+===================================================== 
+

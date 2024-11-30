@@ -4,10 +4,13 @@ import model.exceptions.IncreaseGreaterThanInterestException;
 import constants.FormattingConstants;
 import util.CurrencyFormatter;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa um financiamento de casa, incluindo um valor adicional de seguro obrigatório.
  */
-public class House extends Financing {
+public class House extends Financing implements Serializable {
+    private static final long serialVersionUID = 1L;
     private static final double DEFAULT_INCREASE = 80;
     private double increase;
     private double builtAreaSize;
@@ -110,4 +113,29 @@ public class House extends Financing {
         System.out.printf(FormattingConstants.SEPARATOR_LINE);
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                FormattingConstants.SEPARATOR_LINE +
+                        "         Detalhes do Financiamento - Casa         \n" +
+                        "Tipo: Casa\n" +
+                        "Valor do imóvel: %s\n" +
+                        "Prazo: %d anos\n" +
+                        "Taxa de juros: %.2f%%\n" +
+                        "Tamanho da área construída: %.2f m²\n" +
+                        "Tamanho do terreno: %.2f m²\n" +
+                        "Pagamento mensal: %s\n" +
+                        "Pagamento total: %s\n" +
+                        FormattingConstants.SEPARATOR_LINE,
+                CurrencyFormatter.formatToBRL(getPropertyValue()),
+                getLoanTerm(),
+                getInterestRate(),
+                getBuiltAreaSize(),
+                getLandSize(),
+                CurrencyFormatter.formatToBRL(getMonthlyPayment()),
+                CurrencyFormatter.formatToBRL(getTotalPayment())
+        );
+    }
+
 }
