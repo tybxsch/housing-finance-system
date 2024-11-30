@@ -1,6 +1,7 @@
 package model;
 
 import model.exceptions.IncreaseGreaterThanInterestException;
+import constants.FormattingConstants;
 import util.CurrencyFormatter;
 
 /**
@@ -88,5 +89,25 @@ public class House extends Financing {
         }
 
         return baseMonthlyPayment + monthlyIncrease + increase;
+    }
+
+    /**
+     * Retorna os detalhes do financiamento de casa.
+     *
+     * @param financingNumber Número do financiamento.
+     */
+    @Override
+    public void getFinancingDetails(int financingNumber) {
+        System.out.println(FormattingConstants.SEPARATOR_LINE);
+        System.out.printf("         Detalhes do Financiamento %d - %s         \n", financingNumber, "Casa");
+        System.out.println("Tipo: Casa");
+        System.out.println("Valor do imóvel: " + CurrencyFormatter.formatToBRL(super.getPropertyValue()));
+        System.out.println("Prazo: " + super.getLoanTerm() + " anos");
+        System.out.println("Taxa de juros: " + super.getInterestRate() + "%");
+        System.out.println("Tamanho da área construída: " + this.getBuiltAreaSize() + " m²");
+        System.out.println("Tamanho do terreno: " + this.getLandSize() + " m²");
+        System.out.println("Pagamento mensal: " + CurrencyFormatter.formatToBRL(this.getMonthlyPayment()));
+        System.out.printf(FormattingConstants.SEPARATOR_LINE);
+        System.out.println();
     }
 }
