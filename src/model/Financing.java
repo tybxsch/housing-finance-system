@@ -37,11 +37,6 @@ public abstract class Financing implements Serializable {
      */
     public abstract double getMonthlyPayment();
 
-    //**
-    // * Método abstrato para exibir os detalhes do financiamento.
-    // */
-    public abstract void getFinancingDetails(int financingNumber);
-
     /**
      * Getters.
      */

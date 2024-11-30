@@ -68,26 +68,6 @@ public class Apartment extends Financing implements Serializable {
         return numerator / denominator;
     }
 
-    /**
-     * Retorna os detalhes do financiamento de apartamento.
-     *
-     * @param financingNumber Número do financiamento.
-     */
-    @Override
-    public void getFinancingDetails(int financingNumber) {
-        System.out.println(FormattingConstants.SEPARATOR_LINE);
-        System.out.printf("         Detalhes do Financiamento %d - %s         \n", financingNumber, "Apartamento");
-        System.out.println("Tipo: Apartamento");
-        System.out.println("Valor do imóvel:" + CurrencyFormatter.formatToBRL(super.getPropertyValue()));
-        System.out.println("Prazo: " + super.getLoanTerm() + " anos");
-        System.out.println("Taxa de juros: " + super.getInterestRate() + "%");
-        System.out.println("Número de vagas na garagem: " + this.getGarageSpaces());
-        System.out.println("Número do andar: " + this.getFloorNumber());
-        System.out.println("Pagamento mensal:" + CurrencyFormatter.formatToBRL(this.getMonthlyPayment()));
-        System.out.printf(FormattingConstants.SEPARATOR_LINE);
-        System.out.println();
-    }
-
     @Override
     public String toString() {
         return String.format(

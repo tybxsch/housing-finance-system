@@ -48,26 +48,6 @@ public class Land extends Financing implements Serializable {
         return baseMonthlyPayment * 1.02;
     }
 
-    /**
-     * Exibe os detalhes do financiamento do terreno.
-     *
-     * @param financingNumber Número do financiamento.
-     */
-    @Override
-    public void getFinancingDetails(int financingNumber) {
-        System.out.println(FormattingConstants.SEPARATOR_LINE);
-        System.out.printf("         Detalhes do Financiamento %d - %s         \n", financingNumber, "Terreno");
-        System.out.println("Tipo de imóvel: Terreno");
-        System.out.println("Valor do imóvel: " + CurrencyFormatter.formatToBRL(super.getPropertyValue()));
-        System.out.println("Prazo: " + super.getLoanTerm() + " anos");
-        System.out.println("Taxa de juros anual: " + super.getInterestRate() + "%");
-        System.out.println("Tipo de zona: " + this.zoneType);
-        System.out.println("Pagamento mensal: " + CurrencyFormatter.formatToBRL(this.getMonthlyPayment()));
-        System.out.println("Pagamento total: " + CurrencyFormatter.formatToBRL(super.getTotalPayment()));
-        System.out.printf(FormattingConstants.SEPARATOR_LINE);
-        System.out.println();
-    }
-
     @Override
     public String toString() {
         return String.format(
