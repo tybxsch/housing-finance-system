@@ -36,35 +36,210 @@ Pagamento total: R$ 514.250,00
 ===================================================== 
          Detalhes do Financiamento - Casa         
 Tipo: Casa
-Valor do imóvel: R$ 100.000,00
-Prazo: 20 anos
-Taxa de juros: 20,00%
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
 Tamanho da área construída: 500,00 m²
 Tamanho do terreno: 100,00 m²
-Pagamento mensal: R$ 430,56
-Pagamento total: R$ 103.333,33
+Pagamento mensal: R$ 4.236,11
+Pagamento total: R$ 508.333,33
 ===================================================== 
 
 ===================================================== 
          Detalhes do Financiamento - Apartamento         
 Tipo: Apartamento
-Valor do imóvel: R$ 100.000,00
-Prazo: 20 anos
-Taxa de juros: 20,00%
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
 Número de vagas na garagem: 1
 Número do andar: 10
-Pagamento mensal: R$ 1.698,82
-Pagamento total: R$ 407.717,91
+Pagamento mensal: R$ 6.607,54
+Pagamento total: R$ 792.904,42
 ===================================================== 
 
 ===================================================== 
          Detalhes do Financiamento - Terreno         
 Tipo de imóvel: Terreno
-Valor do imóvel: R$ 100.000,00
-Prazo: 20 anos
-Taxa de juros anual: 20,00%
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros anual: 10,00%
 Tipo de zona: residencial
-Pagamento mensal: R$ 432,08
-Pagamento total: R$ 103.700,00
+Pagamento mensal: R$ 4.285,42
+Pagamento total: R$ 514.250,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 600.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 5.083,33
+Pagamento total: R$ 610.000,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 600.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 7.929,04
+Pagamento total: R$ 951.485,31
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 600.000,00
+Prazo: 10 anos
+Taxa de juros anual: 10,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 5.142,50
+Pagamento total: R$ 617.100,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 4.236,11
+Pagamento total: R$ 508.333,33
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 6.607,54
+Pagamento total: R$ 792.904,42
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 500.000,00
+Prazo: 10 anos
+Taxa de juros anual: 10,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 4.285,42
+Pagamento total: R$ 514.250,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 600.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 5.083,33
+Pagamento total: R$ 610.000,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 600.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 7.929,04
+Pagamento total: R$ 951.485,31
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 600.000,00
+Prazo: 10 anos
+Taxa de juros anual: 10,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 5.142,50
+Pagamento total: R$ 617.100,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 400.000,00
+Prazo: 10 anos
+Taxa de juros: 80,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 3.635,56
+Pagamento total: R$ 436.266,67
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 400.000,00
+Prazo: 10 anos
+Taxa de juros: 80,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 26.678,22
+Pagamento total: R$ 3.201.386,41
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 400.000,00
+Prazo: 10 anos
+Taxa de juros anual: 80,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 3.626,67
+Pagamento total: R$ 435.200,00
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 700.000,00
+Prazo: 23 anos
+Taxa de juros: 85,00%
+Tamanho da área construída: 500,00 m²
+Tamanho do terreno: 100,00 m²
+Pagamento mensal: R$ 2.795,88
+Pagamento total: R$ 771.663,33
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 700.000,00
+Prazo: 23 anos
+Taxa de juros: 85,00%
+Número de vagas na garagem: 1
+Número do andar: 10
+Pagamento mensal: R$ 49.583,33
+Pagamento total: R$ 13.685.000,09
+===================================================== 
+
+===================================================== 
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 700.000,00
+Prazo: 23 anos
+Taxa de juros anual: 85,00%
+Tipo de zona: residencial
+Pagamento mensal: R$ 2.770,20
+Pagamento total: R$ 764.575,00
 ===================================================== 
 

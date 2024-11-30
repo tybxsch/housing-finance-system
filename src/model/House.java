@@ -64,7 +64,7 @@ public class House extends Financing implements Serializable {
     private void isValidateIncrease(double monthlyIncrease) throws IncreaseGreaterThanInterestException {
         if (increase > monthlyIncrease) {
             throw new IncreaseGreaterThanInterestException(String.format(
-                    "O valor do acréscimo de %s é maior que o valor dos juros de %s.",
+                    "O valor do acréscimo de %s fixo da casa é maior que o valor dos juros de %s.",
                     CurrencyFormatter.formatToBRL(increase),
                     CurrencyFormatter.formatToBRL(monthlyIncrease)
             ));
@@ -86,7 +86,7 @@ public class House extends Financing implements Serializable {
         try {
             isValidateIncrease(monthlyIncrease);
         } catch (IncreaseGreaterThanInterestException e) {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ATENÇÃO: " + e.getMessage());
             increase = monthlyIncrease;
             System.out.println("Ajustando o acréscimo para ser igual ao valor dos juros: " + CurrencyFormatter.formatToBRL(monthlyIncrease));
         }
