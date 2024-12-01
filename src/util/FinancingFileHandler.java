@@ -26,6 +26,8 @@ public class FinancingFileHandler {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
             writer.write(financing.toString());
             writer.newLine();
+
+            writer.flush();
         }
     }
 

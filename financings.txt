@@ -45,3 +45,15 @@ Pagamento mensal: R$ 3.253,27
 Pagamento total: R$ 780.785,13
 =====================================================
 
+=====================================================
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
+Valor do imóvel: R$ 980.000,00
+Prazo: 30 anos
+Taxa de juros: 90,00%
+Número de vagas na garagem: 2
+Número do andar: 10
+Pagamento mensal: R$ 73.500,00
+Pagamento total: R$ 26.460.000,00
+=====================================================
+
