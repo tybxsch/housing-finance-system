@@ -51,7 +51,7 @@ public class Land extends Financing implements Serializable {
     @Override
     public String toString() {
         return String.format(
-                FormattingConstants.SEPARATOR_LINE +
+                FormattingConstants.SEPARATOR_LINE + "\n" +
                         "         Detalhes do Financiamento - Terreno         \n" +
                         "Tipo de imóvel: Terreno\n" +
                         "Valor do imóvel: %s\n" +
@@ -60,7 +60,7 @@ public class Land extends Financing implements Serializable {
                         "Tipo de zona: %s\n" +
                         "Pagamento mensal: %s\n" +
                         "Pagamento total: %s\n" +
-                        FormattingConstants.SEPARATOR_LINE,
+                        FormattingConstants.SEPARATOR_LINE + "\n",
                 CurrencyFormatter.formatToBRL(super.getPropertyValue()),
                 super.getLoanTerm(),
                 super.getInterestRate(),

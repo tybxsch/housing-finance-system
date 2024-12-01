@@ -97,7 +97,7 @@ public class House extends Financing implements Serializable {
     @Override
     public String toString() {
         return String.format(
-                FormattingConstants.SEPARATOR_LINE +
+                FormattingConstants.SEPARATOR_LINE + "\n" +
                         "         Detalhes do Financiamento - Casa         \n" +
                         "Tipo: Casa\n" +
                         "Valor do imóvel: %s\n" +
@@ -107,7 +107,7 @@ public class House extends Financing implements Serializable {
                         "Tamanho do terreno: %.2f m²\n" +
                         "Pagamento mensal: %s\n" +
                         "Pagamento total: %s\n" +
-                        FormattingConstants.SEPARATOR_LINE,
+                        FormattingConstants.SEPARATOR_LINE + "\n",
                 CurrencyFormatter.formatToBRL(getPropertyValue()),
                 getLoanTerm(),
                 getInterestRate(),

@@ -1,6 +1,7 @@
 package main;
 
 import util.UserInterface;
+import util.FinancingFileHandler;
 import model.Financing;
 import model.House;
 import model.Apartment;
@@ -18,6 +19,7 @@ public class Main {
         UserInterface ui = new UserInterface();
         ArrayList<Financing> financings = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        String fileName = "financings.txt";
 
         while (true) {
             System.out.println("Escolha uma opção:");
@@ -45,12 +47,12 @@ public class Main {
 
                     try {
                         // Salva os novos financiamentos no arquivo
-                        house.saveToFile("financings.txt");
-                        apartment.saveToFile("financings.txt");
-                        land.saveToFile("financings.txt");
+                        FinancingFileHandler.saveToFile(house, fileName);
+                        FinancingFileHandler.saveToFile(apartment, fileName);
+                        FinancingFileHandler.saveToFile(land, fileName);
 
                         // Serializa toda a lista de financiamentos
-                        Financing.serializeFinancings(financings, "financings.ser");
+                        FinancingFileHandler.serializeFinancings(financings, "financings.ser");
 
                         System.out.println("Financiamentos salvos com sucesso.");
                     } catch (IOException e) {
@@ -61,18 +63,14 @@ public class Main {
                 case 2:
                     try {
                         // Ler financiamentos do arquivo
-                        ArrayList<Financing> loadedFinancings = Financing.readFromFile("financings.txt");
+                        ArrayList<Financing> loadedFinancings = FinancingFileHandler.readFromFile(fileName);
 
                         // Exibir os financiamentos lidos
-                        if (loadedFinancings.isEmpty()) {
-                            System.out.println("Nenhum financiamento salvo.");
-                        } else {
-                            for (Financing financing : loadedFinancings) {
-                                System.out.println(financing);
-                            }
+                        for (Financing financing : loadedFinancings) {
+                            System.out.println(financing);
                         }
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        System.out.println("Nenhum financiamento salvo.");
                     }
                     break;
 
