@@ -45,3 +45,26 @@ Pagamento mensal: R$ 3.142,50
 Pagamento total: R$ 754.200,00
 =====================================================
 
+=====================================================
+         Detalhes do Financiamento - Terreno         
+Tipo de imóvel: Terreno
+Valor do imóvel: R$ 800.000,00
+Prazo: 10 anos
+Taxa de juros anual: 10,00%
+Tipo de zona: comercial
+Pagamento mensal: R$ 6.856,67
+Pagamento total: R$ 822.800,00
+=====================================================
+
+=====================================================
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 900.000,00
+Prazo: 10 anos
+Taxa de juros: 50,00%
+Tamanho da área construída: 800,00 m²
+Tamanho do terreno: 1000,00 m²
+Pagamento mensal: R$ 7.892,50
+Pagamento total: R$ 947.100,00
+=====================================================
+
