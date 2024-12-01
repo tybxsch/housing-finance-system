@@ -69,7 +69,7 @@ public class Application {
             FinancingFileHandler.serializeFinancings(financings, fileSerializedName);
             System.out.println("Financiamento salvo com sucesso.");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro ao salvar financiamento.");
         }
     }
 

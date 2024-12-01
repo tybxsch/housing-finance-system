@@ -1,59 +1,35 @@
 =====================================================
-         Detalhes do Financiamento - Casa         
-Tipo: Casa
+         Detalhes do Financiamento - Apartamento         
+Tipo: Apartamento
 Valor do imóvel: R$ 500.000,00
 Prazo: 10 anos
 Taxa de juros: 10,00%
-Tamanho da área construída: 299,00 m²
-Tamanho do terreno: 699,00 m²
-Pagamento mensal: R$ 4.236,11
-Pagamento total: R$ 508.333,33
+Número de vagas na garagem: 2
+Número do andar: 20
+Pagamento mensal: R$ 6.607,54
+Pagamento total: R$ 792.904,42
 =====================================================
 
 =====================================================
-         Detalhes do Financiamento - Apartamento         
-Tipo: Apartamento
-Valor do imóvel: R$ 600.000,00
-Prazo: 20 anos
-Taxa de juros: 20,00%
-Número de vagas na garagem: 1
-Número do andar: 32
-Pagamento mensal: R$ 10.192,95
-Pagamento total: R$ 2.446.307,43
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 700.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Tamanho da área construída: 200,00 m²
+Tamanho do terreno: 400,00 m²
+Pagamento mensal: R$ 5.930,56
+Pagamento total: R$ 711.666,67
 =====================================================
 
 =====================================================
          Detalhes do Financiamento - Terreno         
 Tipo de imóvel: Terreno
-Valor do imóvel: R$ 400.000,00
-Prazo: 30 anos
+Valor do imóvel: R$ 800.000,00
+Prazo: 20 anos
 Taxa de juros anual: 70,00%
 Tipo de zona: comercial
-Pagamento mensal: R$ 1.199,44
-Pagamento total: R$ 431.800,00
-=====================================================
-
-=====================================================
-         Detalhes do Financiamento - Casa         
-Tipo: Casa
-Valor do imóvel: R$ 709.000,90
-Prazo: 20 anos
-Taxa de juros: 89,00%
-Tamanho da área construída: 299,00 m²
-Tamanho do terreno: 1999,00 m²
-Pagamento mensal: R$ 3.253,27
-Pagamento total: R$ 780.785,13
-=====================================================
-
-=====================================================
-         Detalhes do Financiamento - Apartamento         
-Tipo: Apartamento
-Valor do imóvel: R$ 980.000,00
-Prazo: 30 anos
-Taxa de juros: 90,00%
-Número de vagas na garagem: 2
-Número do andar: 10
-Pagamento mensal: R$ 73.500,00
-Pagamento total: R$ 26.460.000,00
+Pagamento mensal: R$ 3.598,33
+Pagamento total: R$ 863.600,00
 =====================================================
 
