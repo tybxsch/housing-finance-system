@@ -106,33 +106,108 @@ public abstract class Financing implements Serializable {
         ArrayList<Financing> financings = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
+            StringBuilder block = new StringBuilder();
+            boolean isInsideBlock = false;
+
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts[0].equals("House")) {
-                    double propertyValue = Double.parseDouble(parts[1]);
-                    int loanTerm = Integer.parseInt(parts[2]);
-                    double interestRate = Double.parseDouble(parts[3]);
-                    double builtAreaSize = Double.parseDouble(parts[4]);
-                    double landSize = Double.parseDouble(parts[5]);
-                    financings.add(new House(propertyValue, loanTerm, interestRate, builtAreaSize, landSize));
-                } else if (parts[0].equals("Apartment")) {
-                    double propertyValue = Double.parseDouble(parts[1]);
-                    int loanTerm = Integer.parseInt(parts[2]);
-                    double interestRate = Double.parseDouble(parts[3]);
-                    int garageSpaces = Integer.parseInt(parts[4]);
-                    int floorNumber = Integer.parseInt(parts[5]);
-                    financings.add(new Apartment(propertyValue, loanTerm, interestRate, garageSpaces, floorNumber));
-                } else if (parts[0].equals("Land")) {
-                    double propertyValue = Double.parseDouble(parts[1]);
-                    int loanTerm = Integer.parseInt(parts[2]);
-                    double interestRate = Double.parseDouble(parts[3]);
-                    String zoneType = parts[4];
-                    financings.add(new Land(propertyValue, loanTerm, interestRate, zoneType));
+                if (line.startsWith("=====================================================")) {
+                    if (isInsideBlock) {
+                        // Finaliza o bloco atual e parseia
+                        financings.add(parseFinancingBlock(block.toString()));
+                        block.setLength(0); // Reseta o bloco
+                    }
+                    isInsideBlock = !isInsideBlock; // Alterna entre início/fim de bloco
+                } else if (isInsideBlock) {
+                    block.append(line).append("\n");
                 }
+            }
+
+            // Processa o último bloco, se houver
+            if (block.length() > 0) {
+                financings.add(parseFinancingBlock(block.toString()));
             }
         }
         return financings;
     }
+
+    private static Financing parseFinancingBlock(String block) {
+        String[] lines = block.split("\n");
+        String type = null;
+        double propertyValue = 0;
+        int loanTerm = 0;
+        double interestRate = 0;
+
+        for (String line : lines) {
+            if (line.contains("Tipo: Casa")) {
+                type = "House";
+            } else if (line.contains("Tipo: Apartamento")) {
+                type = "Apartment";
+            } else if (line.contains("Tipo de imóvel: Terreno")) {
+                type = "Land";
+            } else if (line.contains("Valor do imóvel:")) {
+                propertyValue = extractDouble(lines, "Valor do imóvel:");
+            } else if (line.contains("Prazo:")) {
+                loanTerm = extractInt(lines, "Prazo:");
+            } else if (line.contains("Taxa de juros")) {
+                interestRate = extractDouble(lines, "Taxa de juros");
+            }
+        }
+
+        switch (type) {
+            case "House":
+                double houseArea = extractDouble(lines, "Tamanho da área construída:");
+                double garageSize = extractDouble(lines, "Tamanho do terreno:");
+                return new House(propertyValue, loanTerm, interestRate, houseArea, garageSize);
+
+            case "Apartment":
+                int garageSpaces = extractInt(lines, "Número de vagas na garagem:");
+                int floor = extractInt(lines, "Número do andar:");
+                return new Apartment(propertyValue, loanTerm, interestRate, garageSpaces, floor);
+
+            case "Land":
+                String zoning = extractString(lines, "Tipo de zona:");
+                return new Land(propertyValue, loanTerm, interestRate, zoning);
+
+            default:
+                throw new IllegalArgumentException("Tipo desconhecido no bloco: " + block);
+        }
+    }
+
+
+
+    private static double extractDouble(String[] lines, String prefix) {
+        for (String line : lines) {
+            if (line.contains(prefix)) {
+                String value = line.replace(prefix, "")
+                        .replaceAll("[^0-9,.-]", "")
+                        .replace(".", "")
+                        .replace(",", ".");
+                return Double.parseDouble(value);
+            }
+        }
+        return 0;
+    }
+
+    private static int extractInt(String[] lines, String prefix) {
+        for (String line : lines) {
+            if (line.contains(prefix)) {
+                String value = line.replace(prefix, "").replaceAll("[^0-9]", "");
+                return Integer.parseInt(value);
+            }
+        }
+        return 0;
+    }
+
+    private static String extractString(String[] lines, String prefix) {
+        for (String line : lines) {
+            if (line.contains(prefix)) {
+                return line.replace(prefix, "").trim();
+            }
+        }
+        return "";
+    }
+
+
 
 
     @Override

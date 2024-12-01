@@ -33,22 +33,26 @@ public class Main {
                     int loanTerm = ui.setLoanTerm(1, false);
                     double interestRate = ui.setInterestRate(1, false);
 
-                    // Adiciona o financiamento fornecido pelo usuário
-                    financings.add(new House(propertyValue, loanTerm, interestRate, 500, 100));
+                    // Cria novos financiamentos
+                    Financing house = new House(propertyValue, loanTerm, interestRate, 500, 100);
+                    Financing apartment = new Apartment(propertyValue, loanTerm, interestRate, 1, 10);
+                    Financing land = new Land(propertyValue, loanTerm, interestRate, "residencial");
 
-                    // Adiciona os demais financiamentos com os mesmos valores de input do usuário para diferentes tipos de imóveis
-                    // Valores chumbados em código conforme a instrução da atividade formativa da semana 5
-                    financings.add(new Apartment(propertyValue, loanTerm, interestRate, 1, 10));
-                    financings.add(new Land(propertyValue, loanTerm, interestRate, "residencial"));
+                    // Adiciona os novos financiamentos
+                    financings.add(house);
+                    financings.add(apartment);
+                    financings.add(land);
 
                     try {
-                        // Salvar dados de financiamento em um arquivo de texto
-                        for (Financing financing : financings) {
-                            financing.saveToFile("financings.txt");
-                        }
+                        // Salva os novos financiamentos no arquivo
+                        house.saveToFile("financings.txt");
+                        apartment.saveToFile("financings.txt");
+                        land.saveToFile("financings.txt");
 
-                        // Serializar a lista de financiamentos
+                        // Serializa toda a lista de financiamentos
                         Financing.serializeFinancings(financings, "financings.ser");
+
+                        System.out.println("Financiamentos salvos com sucesso.");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -56,15 +60,18 @@ public class Main {
 
                 case 2:
                     try {
-                        // Ler dados de financiamento do arquivo de texto
+                        // Ler financiamentos do arquivo
                         ArrayList<Financing> loadedFinancings = Financing.readFromFile("financings.txt");
 
-                        // Desserializar a lista de financiamentos
-                        ArrayList<Financing> deserializedFinancings = Financing.deserializeFinancings("financings.ser");
-                        for (Financing financing : deserializedFinancings) {
-                            System.out.println(financing);
+                        // Exibir os financiamentos lidos
+                        if (loadedFinancings.isEmpty()) {
+                            System.out.println("Nenhum financiamento salvo.");
+                        } else {
+                            for (Financing financing : loadedFinancings) {
+                                System.out.println(financing);
+                            }
                         }
-                    } catch (IOException | ClassNotFoundException e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                     break;
