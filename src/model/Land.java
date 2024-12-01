@@ -48,6 +48,11 @@ public class Land extends Financing implements Serializable {
         return baseMonthlyPayment * 1.02;
     }
 
+    /**
+     * Transforma em string com formatação.
+     *
+     * @return String formatada.
+     */
     @Override
     public String toString() {
         return String.format(

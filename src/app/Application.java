@@ -9,12 +9,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * A classe Application é responsável por gerenciar a execução do programa de financiamento.
+ * Ela permite adicionar novos financiamentos e listar os financiamentos salvos.
+ */
 public class Application {
     private UserInterface ui;
     private ArrayList<Financing> financings;
     private String fileName;
     private String fileSerializedName;
 
+    /**
+     * Construtor da classe Application.
+     * Inicializa a interface do usuário, a lista de financiamentos e os nomes dos arquivos.
+     */
     public Application() {
         this.ui = new UserInterface();
         this.financings = new ArrayList<>();
@@ -22,6 +30,10 @@ public class Application {
         this.fileSerializedName = "financings.ser";
     }
 
+    /**
+     * Método principal que executa o loop do programa.
+     * Exibe o menu de opções e executa as ações correspondentes.
+     */
     public void run() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -44,6 +56,11 @@ public class Application {
         }
     }
 
+    /**
+     * Adiciona um novo financiamento à lista e salva nos arquivos.
+     * Utiliza a fábrica de financiamentos para criar um novo financiamento.
+     * Em caso de erro de E/S, exibe a pilha de erros.
+     */
     private void addFinancing() {
         try {
             Financing financing = FinancingFactory.createFinancing(ui);
@@ -56,6 +73,10 @@ public class Application {
         }
     }
 
+    /**
+     * Lista os financiamentos salvos no arquivo.
+     * Em caso de erro de E/S, exibe uma mensagem informando que não há financiamentos salvos.
+     */
     private void listFinancings() {
         try {
             ArrayList<Financing> loadedFinancings = FinancingFileHandler.readFromFile(fileName);

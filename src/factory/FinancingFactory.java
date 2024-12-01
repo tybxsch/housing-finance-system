@@ -8,7 +8,17 @@ import util.UserInterface;
 
 import java.util.Scanner;
 
+/**
+ * A classe FinancingFactory é responsável por criar instâncias de diferentes tipos de financiamento.
+ */
 public class FinancingFactory {
+
+    /**
+     * Cria um novo financiamento com base na entrada do usuário.
+     *
+     * @param ui A interface do usuário para coletar os dados necessários.
+     * @return Uma instância de Financing, que pode ser uma Casa, Apartamento ou Terreno.
+     */
     public static Financing createFinancing(UserInterface ui) {
         double propertyValue = ui.setPropertyValue(1, false);
         int loanTerm = ui.setLoanTerm(1, false);
@@ -40,6 +50,4 @@ public class FinancingFactory {
             }
         }
     }
-
 }
-

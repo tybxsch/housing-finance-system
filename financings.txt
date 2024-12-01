@@ -68,3 +68,15 @@ Pagamento mensal: R$ 7.892,50
 Pagamento total: R$ 947.100,00
 =====================================================
 
+=====================================================
+         Detalhes do Financiamento - Casa         
+Tipo: Casa
+Valor do imóvel: R$ 200.000,00
+Prazo: 10 anos
+Taxa de juros: 10,00%
+Tamanho da área construída: 299,00 m²
+Tamanho do terreno: 400,00 m²
+Pagamento mensal: R$ 1.694,44
+Pagamento total: R$ 203.333,33
+=====================================================
+

@@ -68,6 +68,11 @@ public class Apartment extends Financing implements Serializable {
         return numerator / denominator;
     }
 
+    /**
+     * Transforma em string com formatação.
+     *
+     * @return String formatada.
+     */
     @Override
     public String toString() {
         return String.format(

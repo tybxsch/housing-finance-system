@@ -94,6 +94,11 @@ public class House extends Financing implements Serializable {
         return baseMonthlyPayment + monthlyIncrease + increase;
     }
 
+    /**
+     * Transforma em string com formatação.
+     *
+     * @return String formatada.
+     */
     @Override
     public String toString() {
         return String.format(
