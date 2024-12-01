@@ -1,12 +1,16 @@
 package model;
 
-import model.exceptions.IncreaseGreaterThanInterestException;
+import exceptions.IncreaseGreaterThanInterestException;
+import constants.FormattingConstants;
 import util.CurrencyFormatter;
+
+import java.io.Serializable;
 
 /**
  * Classe que representa um financiamento de casa, incluindo um valor adicional de seguro obrigatório.
  */
-public class House extends Financing {
+public class House extends Financing implements Serializable {
+    private static final long serialVersionUID = 1L;
     private static final double DEFAULT_INCREASE = 80;
     private double increase;
     private double builtAreaSize;
@@ -60,7 +64,7 @@ public class House extends Financing {
     private void isValidateIncrease(double monthlyIncrease) throws IncreaseGreaterThanInterestException {
         if (increase > monthlyIncrease) {
             throw new IncreaseGreaterThanInterestException(String.format(
-                    "O valor do acréscimo de %s é maior que o valor dos juros de %s.",
+                    "O valor do acréscimo de %s fixo da casa é maior que o valor dos juros de %s.",
                     CurrencyFormatter.formatToBRL(increase),
                     CurrencyFormatter.formatToBRL(monthlyIncrease)
             ));
@@ -82,11 +86,41 @@ public class House extends Financing {
         try {
             isValidateIncrease(monthlyIncrease);
         } catch (IncreaseGreaterThanInterestException e) {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ATENÇÃO: " + e.getMessage());
             increase = monthlyIncrease;
-            System.out.println("Ajustando o acréscimo para ser igual ao valor dos juros: " + CurrencyFormatter.formatToBRL(monthlyIncrease));
+            System.out.println("O acréscimo foi ajustado para ser igual ao valor dos juros: " + CurrencyFormatter.formatToBRL(monthlyIncrease));
         }
 
         return baseMonthlyPayment + monthlyIncrease + increase;
     }
+
+    /**
+     * Transforma em string com formatação.
+     *
+     * @return String formatada.
+     */
+    @Override
+    public String toString() {
+        return String.format(
+                FormattingConstants.SEPARATOR_LINE + "\n" +
+                        "         Detalhes do Financiamento - Casa         \n" +
+                        "Tipo: Casa\n" +
+                        "Valor do imóvel: %s\n" +
+                        "Prazo: %d anos\n" +
+                        "Taxa de juros: %.2f%%\n" +
+                        "Tamanho da área construída: %.2f m²\n" +
+                        "Tamanho do terreno: %.2f m²\n" +
+                        "Pagamento mensal: %s\n" +
+                        "Pagamento total: %s\n" +
+                        FormattingConstants.SEPARATOR_LINE + "\n",
+                CurrencyFormatter.formatToBRL(getPropertyValue()),
+                getLoanTerm(),
+                getInterestRate(),
+                getBuiltAreaSize(),
+                getLandSize(),
+                CurrencyFormatter.formatToBRL(getMonthlyPayment()),
+                CurrencyFormatter.formatToBRL(getTotalPayment())
+        );
+    }
+
 }

@@ -1,9 +1,16 @@
 package model;
 
+import constants.FormattingConstants;
+import util.CurrencyFormatter;
+
+import java.io.Serializable;
+
+
 /**
  * Classe que representa um financiamento de apartamento, utilizando o sistema de amortização PRICE.
  */
-public class Apartment extends Financing {
+public class Apartment extends Financing implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int garageSpaces;
     private int floorNumber;
 
@@ -61,4 +68,32 @@ public class Apartment extends Financing {
         return numerator / denominator;
     }
 
+    /**
+     * Transforma em string com formatação.
+     *
+     * @return String formatada.
+     */
+    @Override
+    public String toString() {
+        return String.format(
+                FormattingConstants.SEPARATOR_LINE + "\n" +
+                        "         Detalhes do Financiamento - Apartamento         \n" +
+                "Tipo: Apartamento\n" +
+                        "Valor do imóvel: %s\n" +
+                        "Prazo: %d anos\n" +
+                        "Taxa de juros: %.2f%%\n" +
+                        "Número de vagas na garagem: %d\n" +
+                        "Número do andar: %d\n" +
+                        "Pagamento mensal: %s\n" +
+                        "Pagamento total: %s\n" +
+                        FormattingConstants.SEPARATOR_LINE + "\n",
+                CurrencyFormatter.formatToBRL(getPropertyValue()),
+                getLoanTerm(),
+                getInterestRate(),
+                garageSpaces,
+                floorNumber,
+                CurrencyFormatter.formatToBRL(getMonthlyPayment()),
+                CurrencyFormatter.formatToBRL(getTotalPayment())
+        );
+    }
 }

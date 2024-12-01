@@ -1,8 +1,11 @@
 package model;
 
+import java.io.*;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import constants.FormattingConstants;
 import util.FinancingTypesTranslated;
 import util.CurrencyFormatter;
 
@@ -10,7 +13,8 @@ import util.CurrencyFormatter;
  * Classe Financing que representa um financiamento imobiliário.
  * Ela calcula o pagamento mensal e o pagamento total com base no valor do imóvel, prazo do financiamento e taxa de juros anual.
  */
-public abstract class Financing {
+public abstract class Financing implements Serializable {
+    private static final long serialVersionUID = 1L;
     private double propertyValue;
     private int loanTerm;
     private double interestRate;
@@ -29,7 +33,7 @@ public abstract class Financing {
     }
 
     /**
-     * Método abstratos para calcular o pagamento MENSAL do financiamento.
+     * Método abstrato para calcular o pagamento MENSAL do financiamento.
      */
     public abstract double getMonthlyPayment();
 
@@ -59,29 +63,6 @@ public abstract class Financing {
     }
 
     /**
-     * Exibe os detalhes do financiamento formatados em reais (R$).
-     */
-    public void getFinancingDetails(int financingNumber, Financing financing) {
-        double totalPayment = this.getTotalPayment();
-        double monthlyPayment = this.getMonthlyPayment();
-        String financingType = FinancingTypesTranslated.getFinancingTypeByClassName(financing.getClass().getSimpleName());
-
-        System.out.println("=====================================");
-        if (financingNumber > 0) {
-            System.out.printf("         Detalhes do Financiamento %d - %s         \n", financingNumber, financingType);
-        } else {
-            System.out.printf("         Detalhes do Financiamento - %s  \n", financingType);
-        }
-        System.out.println("=====================================");
-        System.out.printf("Valor do Imóvel: %s\n", CurrencyFormatter.formatToBRL(this.propertyValue));
-        System.out.printf("Prazo do Financiamento: %d anos\n", this.loanTerm);
-        System.out.printf("Taxa de Juros Anual: %.2f%%\n", this.interestRate);
-        System.out.printf("Pagamento Mensal: %s\n", CurrencyFormatter.formatToBRL(monthlyPayment));
-        System.out.printf("Valor Total do Financiamento: %s\n", CurrencyFormatter.formatToBRL(totalPayment));
-        System.out.println("=====================================");
-    }
-
-    /**
      * Exibe os detalhes totais de todos os financiamentos fornecidos formatados em reais (R$).
      *
      * @param financings Lista de objetos de financiamento.
@@ -95,11 +76,9 @@ public abstract class Financing {
             totalFinancingValue += financing.getTotalPayment();
         }
 
-        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-
-        System.out.println("=====================================");
-        System.out.printf("Valor Total de Todos os Imóveis: %s\n", currencyFormatter.format(totalPropertyValue));
-        System.out.printf("Valor Total de Todos os Financiamentos: %s\n", currencyFormatter.format(totalFinancingValue));
-        System.out.println("=====================================");
+        System.out.printf(FormattingConstants.SEPARATOR_LINE);
+        System.out.printf("Valor Total de Todos os Imóveis: %s\n", CurrencyFormatter.formatToBRL(totalPropertyValue));
+        System.out.printf("Valor Total de Todos os Financiamentos: %s\n", CurrencyFormatter.formatToBRL(totalFinancingValue));
+        System.out.println(FormattingConstants.SEPARATOR_LINE);
     }
 }
