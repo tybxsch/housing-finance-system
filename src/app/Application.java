@@ -79,10 +79,19 @@ public class Application {
      */
     private void listFinancings() {
         try {
+            // Carrega os financiamentos do arquivo e serializados
+            ArrayList<Financing> serializedFinancings = FinancingFileHandler.deserializeFinancings(fileSerializedName);
             ArrayList<Financing> loadedFinancings = FinancingFileHandler.readFromFile(fileName);
+
+            if (serializedFinancings.size() > 0) {
+                System.out.println("Dados carregados com sucesso.");
+            }
+
             loadedFinancings.forEach(System.out::println);
         } catch (IOException e) {
             System.out.println("Nenhum financiamento salvo.");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }
