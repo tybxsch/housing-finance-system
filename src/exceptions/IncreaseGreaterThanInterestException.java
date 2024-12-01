@@ -1,4 +1,4 @@
-package model.exceptions;
+package exceptions;
 
 /**
  * Exceção lançada quando o valor do acréscimo é maior do que o valor dos juros da mensalidade.

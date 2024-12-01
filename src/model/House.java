@@ -1,6 +1,6 @@
 package model;
 
-import model.exceptions.IncreaseGreaterThanInterestException;
+import exceptions.IncreaseGreaterThanInterestException;
 import constants.FormattingConstants;
 import util.CurrencyFormatter;
 
@@ -88,7 +88,7 @@ public class House extends Financing implements Serializable {
         } catch (IncreaseGreaterThanInterestException e) {
             System.out.println("ATENÇÃO: " + e.getMessage());
             increase = monthlyIncrease;
-            System.out.println("Ajustando o acréscimo para ser igual ao valor dos juros: " + CurrencyFormatter.formatToBRL(monthlyIncrease));
+            System.out.println("O acréscimo foi ajustado para ser igual ao valor dos juros: " + CurrencyFormatter.formatToBRL(monthlyIncrease));
         }
 
         return baseMonthlyPayment + monthlyIncrease + increase;

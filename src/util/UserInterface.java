@@ -104,4 +104,56 @@ public class UserInterface {
         }
         return numberOfFinancings;
     }
+
+    /**
+     * Solicita ao usuário os atributos específicos para uma casa.
+     *
+     * @return Um array contendo o tamanho da casa (em m²) e o número de andares.
+     */
+    public double[] setHouseAttributes() {
+        double size = InputValidator.getPositiveDouble("Digite o tamanho da casa (em m²): ");
+        double floors = InputValidator.getPositiveDouble("Digite o tamanho do terreno (em m²): ");
+        return new double[]{size, floors};
+    }
+
+    /**
+     * Solicita ao usuário os atributos específicos para um apartamento.
+     *
+     * @return Um array contendo o número do andar e o número de vagas de garagem.
+     */
+    public int[] setApartmentAttributes() {
+        int garageSpaces = InputValidator.getPositiveInt("Digite o número de vagas de garagem: ");
+        int floorNumber = InputValidator.getPositiveInt("Digite o número do andar: ");
+        return new int[]{garageSpaces, floorNumber};
+    }
+
+    /**
+     * Solicita ao usuário os atributos específicos para um terreno.
+     *
+     * @return O tipo do terreno (residencial ou comercial).
+     */
+    public String setLandAttributes() {
+        String landType = "";
+        while (true) {
+            try {
+                System.out.print("Digite o tipo do terreno (1 para residencial, 2 para comercial): ");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice == 1) {
+                    landType = "residencial";
+                    break;
+                } else if (choice == 2) {
+                    landType = "comercial";
+                    break;
+                } else {
+                    System.out.println("Opção inválida. Por favor, digite 1 para residencial ou 2 para comercial.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Por favor, digite um número inteiro.");
+                scanner.next();
+            }
+        }
+        return landType;
+    }
+
 }
